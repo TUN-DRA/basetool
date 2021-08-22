@@ -16,6 +16,8 @@
 
 ## players テーブル
 
+| Column        | Type       | Options           |
+| --------------| ---------- | ----------------- |
 | user          | references | foreign_key: true |
 | age           |  integer   |                   |
 | affiliation   |   string   |                   |
