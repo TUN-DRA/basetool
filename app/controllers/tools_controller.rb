@@ -24,24 +24,23 @@ class ToolsController < ApplicationController
   end
 
   def destroy
-    tweet = Tweet.find(params[:id])
-    tweet.destroy
+    tool = Tool.find(params[:id])
+    tool.destroy
   end
 
   def edit
+    @tool = Tool.find(params[:id])
   end
 
   def update
-    tweet = Tweet.find(params[:id])
-    tweet.update(tweet_params)
+    tool = Tool.find(params[:id])
+    tool.update(tool_params)
   end
 
   def show
-    @comment = Comment.new
-    @comments = @tweet.comments.includes(:user)
+    #@comment = Comment.new
+    #@comments = @tweet.comments.includes(:user)
   end
-
-
 
   private
 
