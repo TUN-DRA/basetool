@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     post 'players', to: 'users/registrations#create_player'
   end
   root to: "tools#index"
+
+  resources :tools
 end

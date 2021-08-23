@@ -1,0 +1,65 @@
+<%= form_with model: @tool, local: true do |f|%>
+  <div class="field">
+    <%= f.label :image, "道具の画像" %><br />
+    <%= f.file_field :image, id:"image" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id, "カテゴリー" %><br />
+    <%= f.text_field :category_id, class: :form__text, id:"category_id" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tool_name, "道具の名称" %><br />
+    <%= f.text_field :tool_name, id:"tool_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :maker_id, "メーカー" %><br />
+    <%= f.text_field :maker_id, class: :form__text, id:"maker_id" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :evaluation_id, "評価" %><br />
+    <%= f.text_field :evaluation_id, class: :form__text, id:"evaluation_id" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :detail, "こだわり" %><br />
+    <%= f.text_area :detail, class: :form__text, id:"detail" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "値段" %><br />
+    <%= f.text_field :price, class: :form__text, id:"price" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :purchase_date, "購入年月" %><br />
+    <%= f.text_field :purchase_date, class: :form__text, id:"purchase_date" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size, "サイズ" %><br />
+    <%= f.text_field :size, class: :form__text, id:"size" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight, "重さ" %><br />
+    <%= f.text_field :weight, class: :form__text, id:"weight" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :part_number, "品番" %><br />
+    <%= f.text_field :part_number, class: :form__text, id:"part_number" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :purchase_store, "購入店舗" %><br />
+    <%= f.text_field :purchase_store, class: :form__text, id:"purchase_store" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "投稿する", class: :form__btn  %>
+  </div>
+<% end %>

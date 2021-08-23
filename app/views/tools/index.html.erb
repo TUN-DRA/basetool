@@ -3,8 +3,23 @@
 <% if user_signed_in?%>
   <h2>ログインしています</h2>
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <%= link_to "新規投稿", new_tool_path %>
 <% else %>
   <h2>ログインしていません</h2>
   <%= link_to "新規登録", new_user_registration_path %>
   <%= link_to "ログイン", new_user_session_path %>
 <% end %>
+
+<%# if @tools.present? %>
+  <%#= link_to tool_path(tool.id),method: :get do %>
+    <%#= image_tag @tools.image, class: 'tool-image' %>
+  <%# end %>
+<%# end %>
+
+<%#= form_with(url: search_tools_path, local: true, method: :get, class: "search-form") do |form| %>
+  <%#= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+  <%#= form.submit "検索", class: "search-btn" %>
+<%# end %>
+<div class="contents row">
+  <%= tool_lists(@tools) %>
+</div>
