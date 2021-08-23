@@ -38,6 +38,7 @@ class ToolsController < ApplicationController
   end
 
   def show
+    @tool = Tool.find(params[:id])
     #@comment = Comment.new
     #@comments = @tweet.comments.includes(:user)
   end
