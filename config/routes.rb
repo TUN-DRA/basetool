@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   end
   root to: "tools#index"
 
-  resources :tools
+  resources :tools do
+    resources :comments, only: :create
+  end
 end

@@ -25,17 +25,17 @@
 
   <div class="field">
     <%= f.label :pitching_id %><br />
-    <%= f.text_field :pitching_id %>
+    <%= f.collection_select(:pitching_id, Pitching.all, :id, :name, {}, {class:"pitching-select"}) %>
   </div>
 
   <div class="field">
     <%= f.label :batting_id %><br />
-    <%= f.text_field :batting_id %>
+    <%= f.collection_select(:batting_id, Batting.all, :id, :name, {}, {class:"batting-select"}) %>
   </div>
 
   <div class="field">
     <%= f.label :prefecture_id %><br />
-    <%= f.text_field :prefecture_id %>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
   </div>
 
   <div class="actions">

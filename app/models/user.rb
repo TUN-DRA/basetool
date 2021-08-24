@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   has_one :player
   has_many :tools
+  has_many :comments
 end

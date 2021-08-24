@@ -13,11 +13,98 @@
         </ul>
       </div>
     <% end %>
-    <p><%= @tool.tool_name %></p>
+
+    <div class="prototype__body">
+      <div class="prototype__detail">
+        <p class="detail__title">カテゴリー</p>
+        <p class="detail__message">
+          <%= @tool.category.name %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">名称</p>
+        <p class="detail__message">
+          <%= @tool.tool_name %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">メーカー</p>
+        <p class="detail__message">
+          <%= @tool.maker.name %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">評価</p>
+        <p class="detail__message">
+          <%= @tool.evaluation_id %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">こだわり</p>
+        <p class="detail__message">
+          <%= @tool.detail %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">値段</p>
+        <p class="detail__message">
+          <%= @tool.price %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">購入年月</p>
+        <p class="detail__message">
+          <%= @tool.purchase_date %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">サイズ</p>
+        <p class="detail__message">
+          <%= @tool.size %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">重さ</p>
+        <p class="detail__message">
+          <%= @tool.weight %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">品番</p>
+        <p class="detail__message">
+          <%= @tool.part_number %>
+        </p>
+      </div>
+      <div class="prototype__detail">
+        <p class="detail__title">購入店舗</p>
+        <p class="detail__message">
+          <%= @tool.purchase_store %>
+        </p>
+      </div>
+    </div>
     <span class="name">
       <a href="/users/<%= @tool.user.id %>">
         <span>投稿者</span><%= @tool.user.nickname %>
       </a>
     </span>
+  </div>
+  <div class="container">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@tool, @comment], local: true) do |form| %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.submit "SEND" %>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% @comments.each do |comment| %>
+        <p>
+          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+          <%= comment.text %>
+        </p>
+      <% end %>
+    </div>
   </div>
 </div>
