@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :tools do
     resources :comments, only: :create
   end
+
+  resources :users, only: :show
 end

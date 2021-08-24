@@ -6,6 +6,7 @@ class Tool < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :maker
+  belongs_to :evaluation
 
   with_options presence: true do
     validates :image
@@ -13,6 +14,6 @@ class Tool < ApplicationRecord
     validates :maker_id
     validates :category_id
     validates :detail
-    validates :evaluation_id
+    validates :evaluation_id, numericality: { other_than: 1, message: "can't be blank" }
   end
 end

@@ -1,6 +1,6 @@
 class Maker < ActiveHash::Base
   self.data = [
-    { id: 1, name: '--' },
+    { id: 1, name: ' ' },
     { id: 2, name: 'IP Select' },
     { id: 3, name: 'アシックス' },
     { id: 4, name: 'UPSET' },

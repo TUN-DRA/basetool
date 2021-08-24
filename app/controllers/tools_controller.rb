@@ -1,9 +1,9 @@
 class ToolsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit]
 
   #before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  #before_action :move_to_index, only: [:edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
     @tools = Tool.includes(:user).order('created_at DESC')

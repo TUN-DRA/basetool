@@ -1,0 +1,48 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@user.nickname} さんの選手情報"%>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">年齢</th>
+            <td class="table__col2"><%= @user.player.age %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">所属</th>
+            <td class="table__col2"><%= @user.player.affiliation %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">身長</th>
+            <td class="table__col2"><%= @user.player.height %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">体重</th>
+            <td class="table__col2"><%= @user.player.weight %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">投法</th>
+            <td class="table__col2"><%= @user.player.pitching.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">打法</th>
+            <td class="table__col2"><%= @user.player.batting.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">地域</th>
+            <td class="table__col2"><%= @user.player.prefecture.name %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "#{@user.nickname} さんの道具一覧"%>
+      </h2>
+      <div class="user__card">
+        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+        <%= render partial: 'tools/tool', collection: @tools %>
+      </div>
+    </div>
+  </div>
+</div>
