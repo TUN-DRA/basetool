@@ -5,6 +5,8 @@ class ToolsController < ApplicationController
 
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
+  before_action :search_tool, only: [:index, :search]
+
   def index
     @tools = Tool.includes(:user).order('created_at DESC')
   end
@@ -43,6 +45,10 @@ class ToolsController < ApplicationController
     @comments = @tool.comments.includes(:user)
   end
 
+  def search
+    @results = @p.result.includes(:category)  # 検索条件にマッチした商品の情報を取得
+  end
+
   private
 
   def tool_params
@@ -54,6 +60,10 @@ class ToolsController < ApplicationController
   end
 
   def move_to_index
-    redirect_to root_path unless current_user == @tool.user
+    #redirect_to root_path unless current_user == @tool.user
+  end
+
+  def search_tool
+    @p = Tool.ransack(params[:q])  # 検索オブジェクトを生成
   end
 end

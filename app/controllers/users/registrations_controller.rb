@@ -28,6 +28,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
   end
+
+  def edit_player
+    @player = Player.find(params[:id])
+  end
  
   private
  

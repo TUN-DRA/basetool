@@ -1,25 +1,29 @@
-<h1>トップページ</h1>
-
-<% if user_signed_in?%>
-  <h2>ログインしています</h2>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "新規投稿", new_tool_path %>
-<% else %>
-  <h2>ログインしていません</h2>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <%= link_to "ログイン", new_user_session_path %>
-<% end %>
-
-<%# if @tools.present? %>
-  <%#= link_to tool_path(tool.id),method: :get do %>
-    <%#= image_tag @tools.image, class: 'tool-image' %>
-  <%# end %>
-<%# end %>
-
 <%#= form_with(url: search_tools_path, local: true, method: :get, class: "search-form") do |form| %>
   <%#= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
   <%#= form.submit "検索", class: "search-btn" %>
 <%# end %>
+<%= render "shared/header" %>
+<h1>トップページ</h1>
+<%= search_form_for @p, url: tools_search_path do |f| %>
+  <%= f.label :category_id_eq, 'カテゴリー：' %>
+  <%= f.collection_select :category_id_eq, Category.all, :id, :name %>
+  <br>
+  <%= f.label :maker_id_eq, 'メーカー：' %>
+  <%= f.collection_select :maker_id_eq, Maker.all, :id, :name %>
+  <br>
+  <%= f.label :evaluation_id, '評価：' %>
+  <%= f.radio_button :evaluation_id_gteq, '' %>
+  指定なし
+  <%= f.radio_button :evaluation_id_gteq, 4 %>
+  ★3以上
+  <%= f.radio_button :evaluation_id_gteq, 5 %>
+  ★4以上
+  <%= f.radio_button :evaluation_id_gteq, 6 %>
+  ★5
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
+
 <div class="contents row">
   <%= tool_lists(@tools) %>
 </div>

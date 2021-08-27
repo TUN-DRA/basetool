@@ -1,62 +1,62 @@
 <%= form_with model: @tool, local: true do |f|%>
-  <div class="field">
+  <div class="field"><span class="indispensable">必須</span>
     <%= f.label :image, "道具の画像" %><br />
     <%= f.file_field :image, id:"image" %>
   </div>
 
-  <div class="field">
+  <div class="field"><span class="indispensable">必須</span>
     <%= f.label :category_id, "カテゴリー" %><br />
     <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
   </div>
 
-  <div class="field">
+  <div class="field"><span class="indispensable">必須</span>
     <%= f.label :tool_name, "道具の名称" %><br />
-    <%= f.text_field :tool_name, id:"tool_name" %>
+    <%= f.text_field :tool_name, id:"tool_name", placeholder: "例）軟式用バット" %>
   </div>
 
-  <div class="field">
+  <div class="field"><span class="indispensable">必須</span>
     <%= f.label :maker_id, "メーカー" %><br />
     <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"maker-select"}) %>
   </div>
 
-  <div class="field">
+  <div class="field"><span class="indispensable">必須</span>
     <%= f.label :evaluation_id, "評価" %><br />
     <%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"evaluation-select"}) %>
   </div>
 
   <div class="field">
     <%= f.label :detail, "こだわり" %><br />
-    <%= f.text_area :detail, class: :form__text, id:"detail" %>
+    <%= f.text_area :detail, class: :form__text, id:"detail", placeholder:"（1,000文字まで）（色、素材、特徴、こだわりなど）例）超々ジュラルミン素材のトップバランスモデルです。打球音が高くてお気に入りです。自分の体格からすると少し重めですが、ヘッドが効いて振り抜きやすいです。フレアグリップに加工しているのがこだわりです。" ,rows:"10" ,maxlength:"1000" %>
   </div>
 
   <div class="field">
-    <%= f.label :price, "値段" %><br />
-    <%= f.text_field :price, class: :form__text, id:"price" %>
+    <%= f.label :price, "税込価格" %><br />
+    <%= f.text_field :price, class: :form__text, id:"price", placeholder:"例）30000" %><span>円</span>
   </div>
 
   <div class="field">
     <%= f.label :purchase_date, "購入年月" %><br />
-    <%= f.text_field :purchase_date, class: :form__text, id:"purchase_date" %>
+    <%= f.text_field :purchase_date, class: :form__text, id:"purchase_date", placeholder:"例）2021年8月" %>
   </div>
 
   <div class="field">
     <%= f.label :size, "サイズ" %><br />
-    <%= f.text_field :size, class: :form__text, id:"size" %>
+    <%= f.text_field :size, class: :form__text, id:"size", placeholder:"例）84cm" %>
   </div>
 
   <div class="field">
     <%= f.label :weight, "重さ" %><br />
-    <%= f.text_field :weight, class: :form__text, id:"weight" %>
+    <%= f.text_field :weight, class: :form__text, id:"weight", placeholder:"例）720" %><span>g</span>
   </div>
 
   <div class="field">
     <%= f.label :part_number, "品番" %><br />
-    <%= f.text_field :part_number, class: :form__text, id:"part_number" %>
+    <%= f.text_field :part_number, class: :form__text, id:"part_number", placeholder:"例）BAT11184" %>
   </div>
 
   <div class="field">
     <%= f.label :purchase_store, "購入店舗" %><br />
-    <%= f.text_field :purchase_store, class: :form__text, id:"purchase_store" %>
+    <%= f.text_field :purchase_store, class: :form__text, id:"purchase_store", placeholder:"例）公式オンラインショップ" %>
   </div>
 
   <div class="actions">

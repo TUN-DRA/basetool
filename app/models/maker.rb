@@ -26,7 +26,7 @@ class Maker < ActiveHash::Base
     { id: 24, name: 'BLUEEQ' },
     { id: 25, name: 'BRETT' },
     { id: 26, name: 'Marucci' },
-    { id: 27, name: 'ミズノ' },
+    { id: 27, name: 'ミズノ', },
     { id: 28, name: '美津和タイガー' },
     { id: 29, name: 'ヤナセバット' },
     { id: 30, name: 'LOUISVILLE SLUGGER' },

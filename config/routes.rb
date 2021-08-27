@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'players', to: 'users/registrations#new_player'
     post 'players', to: 'users/registrations#create_player'
+    put 'players', to: 'users/registrations#edit_player'
+    put 'players', to: 'users/registrations#update_player'
   end
   root to: "tools#index"
 
@@ -13,4 +15,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show
+
+  get 'tools/search'
 end

@@ -1,3 +1,4 @@
+<%= render "shared/header" %>
 <div class="contents row">
   <%= image_tag @tool.image.variant(resize: '500x500'), class: :card__img %>
     <% if user_signed_in? && current_user.id == @tool.user_id %>
@@ -14,84 +15,65 @@
       </div>
     <% end %>
 
-    <div class="prototype__body">
-      <div class="prototype__detail">
-        <p class="detail__title">カテゴリー</p>
-        <p class="detail__message">
-          <%= @tool.category.name %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">名称</p>
-        <p class="detail__message">
-          <%= @tool.tool_name %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">メーカー</p>
-        <p class="detail__message">
-          <%= @tool.maker.name %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">評価</p>
-        <p class="detail__message">
-          <%= @tool.evaluation.name %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">こだわり</p>
-        <p class="detail__message">
-          <%= @tool.detail %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">値段</p>
-        <p class="detail__message">
-          <%= @tool.price %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">購入年月</p>
-        <p class="detail__message">
-          <%= @tool.purchase_date %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">サイズ</p>
-        <p class="detail__message">
-          <%= @tool.size %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">重さ</p>
-        <p class="detail__message">
-          <%= @tool.weight %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">品番</p>
-        <p class="detail__message">
-          <%= @tool.part_number %>
-        </p>
-      </div>
-      <div class="prototype__detail">
-        <p class="detail__title">購入店舗</p>
-        <p class="detail__message">
-          <%= @tool.purchase_store %>
-        </p>
-      </div>
-    </div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">カテゴリー</th>
+            <td class="table__col2"><%= @tool.category.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">名称</th>
+            <td class="table__col2"><%= @tool.tool_name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">メーカー</th>
+            <td class="table__col2"><%= @tool.maker.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">評価</th>
+            <td class="table__col2"><%= @tool.evaluation.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">こだわり</th>
+            <td class="table__col2"><%= @tool.detail %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">税込価格（円）</th>
+            <td class="table__col2"><%= @tool.price %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">購入年月</th>
+            <td class="table__col2"><%= @tool.purchase_date %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">サイズ</th>
+            <td class="table__col2"><%= @tool.size %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">重さ(g)</th>
+            <td class="table__col2"><%= @tool.weight %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">品番</th>
+            <td class="table__col2"><%= @tool.part_number %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">購入店舗</th>
+            <td class="table__col2"><%= @tool.purchase_store %></td>
+          </tr>
+        </tbody>
+      </table>
+
     <span class="name">
       <a href="/users/<%= @tool.user.id %>">
-        <span>投稿者</span><%= @tool.user.nickname %>
+        <%= @tool.user.nickname %><span>さんについて知る</span>
       </a>
     </span>
   </div>
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@tool, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= form.text_area :text, placeholder: "コメントする", rows: "3" %>
         <%= form.submit "SEND" %>
       <% end %>
     <% else %>
