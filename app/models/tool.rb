@@ -16,4 +16,12 @@ class Tool < ApplicationRecord
     validates :detail
     validates :evaluation_id, numericality: { other_than: 1, message: "can't be blank" }
   end
+
+  def self.search(search)
+    if search != ""
+      Tool.where('text LIKE(?)', "%#{search}%")
+    else
+      Tool.all
+    end
+  end
 end
