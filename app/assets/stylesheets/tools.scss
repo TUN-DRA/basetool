@@ -21,8 +21,10 @@ footer p {
 .tool_img{
 }
 
-.image-list{
-  height: 100px;
-  width: 100px;
-  object-fit: contain;
+.image-list {
+  img{
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+  }
 }

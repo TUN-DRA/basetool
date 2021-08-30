@@ -1,4 +1,6 @@
 <%= render "shared/header" %>
+
+<% if @tools.present? %>
 <h1>検索結果を表示しています</h1>
 <%#= search_form_for @q, url: tools_searchtool_path do |f| %>
   <%#= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
@@ -15,3 +17,6 @@
     <%= tool_lists(@tools) %>
   <%# end %>
 </div>
+<% else %>
+<h2>検索結果はありません</h2>
+<% end %>
