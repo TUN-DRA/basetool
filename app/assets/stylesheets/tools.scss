@@ -36,7 +36,7 @@ footer p {
   img{
     width: 600px;
     box-shadow: 20px 20px 20px black;
-    text-align: center;
+    margin: 0 auto;
     position: relative;
     }
   }
@@ -63,7 +63,7 @@ footer p {
   img {
     display: inline-block;
     vertical-align: middle;
-    margin: auto;
+    margin: 10 auto;
   }
 }
 
@@ -130,9 +130,10 @@ a:focus{
 }
 
 .table,tr,td,th{
+  max-width: 80vw;
+  background-color: white;
   border: 1px solid black;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .step1{
