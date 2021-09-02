@@ -75,7 +75,7 @@
   <div class="container">
     <% if user_signed_in? %>
       <%= form_with(model: [@tool, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "3" %>
+        <%= form.text_area :text, placeholder: "コメントする", size:"50x4" %>
         <%= form.submit "SEND" %>
       <% end %>
     <% else %>

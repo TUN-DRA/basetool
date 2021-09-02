@@ -79,7 +79,13 @@ footer p {
 }
 
 .search{
-  margin-left: 100px
+  display: block;
+  width: 500px;
+  margin: 3vh auto;
+}
+
+.search-btn{
+  width: 10%;
 }
 
 .wrapper{
@@ -134,6 +140,15 @@ a:focus{
   background-color: white;
   border: 1px solid black;
   margin: 0 auto;
+  th{
+    background-color:black;
+    color:white;
+    padding: 0 10px;
+  }
+  td{
+    padding: 0 10px;
+    min-width: 80px;
+  }
 }
 
 .step1{
@@ -169,3 +184,8 @@ a:focus{
     width: 100%;
   }
 }
+
+.send{
+  
+}
+
