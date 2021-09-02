@@ -1,13 +1,19 @@
-<%= link_to image_tag("logo.jpeg", class:"basetool-icon"), "/" %>
-
-<% if user_signed_in?%>
-  <h2>ログインしています</h2>
-  <%= link_to "#{current_user.nickname} さんのマイページ", "/users/#{current_user.id}", class: "user-nickname" %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "新規投稿", new_tool_path %>
-  <%#= link_to "登録情報の変更はこちら", players_path, method: :put %>
-<% else %>
-  <h2>ログインしていません</h2>
-  <%= link_to "新規登録", new_user_registration_path %>
-  <%= link_to "ログイン", new_user_session_path %>
-<% end %>
+<div class="wrapper">
+<div class=icon>
+  <%= link_to image_tag("icon.jpeg", class:"basetool-icon"), "/" %>
+</div>
+  <%#div class="session"%>
+  <div class="header">
+    <% if user_signed_in?%>
+      <p >ログインしています</p>
+      <%= link_to "新規投稿", new_tool_path,class: "user post" %>
+      <%= link_to "#{current_user.nickname} さんのマイページ", "/users/#{current_user.id}", class: "user own" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "user rogout" %>
+      <%#= link_to "登録情報の変更はこちら", players_path, method: :put %>
+    <% else %>
+      <p>ログインしていません</p>
+      <%= link_to "新規登録", new_user_registration_path, class: "user" %>
+      <%= link_to "ログイン", new_user_session_path,class: "user" %>
+    <% end %>
+  </div>
+</div>

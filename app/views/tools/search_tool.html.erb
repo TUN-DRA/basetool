@@ -1,7 +1,11 @@
 <%= render "shared/header" %>
-
+<div class="ball">
+<%= image_tag "park.jpeg" %>
+</div>
 <% if @tools.present? %>
+<div class="find">
 <h1>検索結果を表示しています</h1>
+</div>
 <%#= search_form_for @q, url: tools_searchtool_path do |f| %>
   <%#= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
   <%#= f.collection_select :category_id, Category.all, :id, :name %>
@@ -18,5 +22,7 @@
   <%# end %>
 </div>
 <% else %>
-<h2>検索結果はありません</h2>
+<div class="find">
+<h1>検索結果はありません</h1>
+</div>
 <% end %>

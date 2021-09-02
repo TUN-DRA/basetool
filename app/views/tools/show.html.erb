@@ -1,6 +1,8 @@
 <%= render "shared/header" %>
 <div class="contents row">
+  <div class="tool_img">
   <%= image_tag @tool.image.variant(resize: '500x500'), class: :card__img %>
+  </div>
     <% if user_signed_in? && current_user.id == @tool.user_id %>
       <div class="more">
         <span><%#= image_tag 'arrow_top.png' %></span>

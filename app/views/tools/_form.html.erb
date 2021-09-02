@@ -1,27 +1,27 @@
 <%= form_with model: @tool, local: true do |f|%>
-  <div class="field"><span class="indispensable">必須</span>
-    <%= f.label :image, "道具の画像" %><br />
+  <div class="field">
+    <%= f.label :image, "道具の画像" %><span class="indispensable">必須</span><br />
     <%= f.file_field :image, id:"image" %>
     <div class="image-list" id="image-list"></div>
   </div>
 
-  <div class="field"><span class="indispensable">必須</span>
-    <%= f.label :category_id, "カテゴリー" %><br />
+  <div class="field">
+    <%= f.label :category_id, "カテゴリー" %><span class="indispensable">必須</span><br />
     <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-select"}) %>
   </div>
-
-  <div class="field"><span class="indispensable">必須</span>
-    <%= f.label :tool_name, "道具の名称" %><br />
+  
+  <div class="field">
+    <%= f.label :tool_name, "道具の名称" %><span class="indispensable">必須</span><br />
     <%= f.text_field :tool_name, id:"tool_name", placeholder: "例）軟式用バット" %>
   </div>
 
-  <div class="field"><span class="indispensable">必須</span>
-    <%= f.label :maker_id, "メーカー" %><br />
+  <div class="field">
+    <%= f.label :maker_id, "メーカー" %><span class="indispensable">必須</span><br />
     <%= f.collection_select(:maker_id, Maker.all, :id, :name, {}, {class:"maker-select"}) %>
   </div>
 
-  <div class="field"><span class="indispensable">必須</span>
-    <%= f.label :evaluation_id, "評価" %><br />
+  <div class="field">
+    <%= f.label :evaluation_id, "評価" %><span class="indispensable">必須</span><br />
     <%= f.collection_select(:evaluation_id, Evaluation.all, :id, :name, {}, {class:"evaluation-select"}) %>
   </div>
 
