@@ -1,6 +1,7 @@
 <%= render "shared/second-header"%>
 <h2>ユーザー情報登録</h2>
 
+<div class="user_new">
 <%= form_for(@user, url: user_registration_path) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
 
@@ -33,3 +34,4 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

@@ -33,7 +33,7 @@
           </tr>
           <tr>
             <th class="table__col1">評価</th>
-            <td class="table__col2"><%= @tool.evaluation.name %></td>
+            <td class="star"><%= @tool.evaluation.name %></td>
           </tr>
           <tr>
             <th class="table__col1">こだわり</th>
@@ -68,6 +68,7 @@
 
     <span class="name">
       <a href="/users/<%= @tool.user.id %>">
+      <div class="userpage">
         <%= @tool.user.nickname %><span>さんについて知る</span>
       </a>
     </span>
