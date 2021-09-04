@@ -6,44 +6,44 @@
 <%= form_for @player do |f| %>
   <%= render "devise/shared/error_messages", resource: @player %>
 
-  <div class="field">
+  <p class="field">
     <label class="form-text">年齢</label><br>
     <%= f.text_field :age %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p class="field">
     <label class="form-text">所属チーム</label><br>
     <%= f.text_field :affiliation %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p class="field">
     <label class="form-text">身長</label><br>
     <%= f.text_field :height %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p class="field">
     <label class="form-text">体重</label><br>
     <%= f.text_field :weight %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p class="field">
     <label class="form-text">投法</label><br>
     <%= f.collection_select(:pitching_id, Pitching.all, :id, :name, {}, {class:"pitching-select"}) %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p class="field">
     <label class="form-text">打法</label><br>
     <%= f.collection_select(:batting_id, Batting.all, :id, :name, {}, {class:"batting-select"}) %>
-  </div>
+  </p>
 
-  <div class="field">
+  <p class="field">
     <label class="form-text">地域</label><br>
     <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
-  </div>
+  </p>
 
-  <div class="actions">
+  <p class="actions">
     <%= f.submit "登録する" %>
-  </div>
+  </p>
 <% end %>
 
 <%= render "devise/shared/links" %>

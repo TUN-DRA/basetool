@@ -9,7 +9,9 @@ footer p {
 }
 
 .content_post{
-
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tools{
@@ -116,7 +118,6 @@ footer p {
 }
 
 .steps{
-  background-color: coral;
   width: 100%;
 }
 
@@ -166,8 +167,9 @@ a:focus{
     0 1px 0 white,
     -1px 0 0 white,
     0 -1px 0 white;
-  background-size: contain;
+  background-size: cover;
   background-image: url("glove.jpeg");
+  background-color:green;
   height: 50%;
 }
 
@@ -179,8 +181,9 @@ a:focus{
     0 1px 0 white,
     -1px 0 0 white,
     0 -1px 0 white;
-  background-size: contain;
-  background-image: url("bat.jpeg");
+  background-size: cover;
+  background-image: url("ground.jpeg");
+  background-color: mediumpurple;
   height: 50%;
 }
 
@@ -217,17 +220,17 @@ a:focus{
 }
 
 .user_new{
-  width: 50%;
+  width: 350px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .new_player{
-  width: 50%;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
-  h2,p{
+  margin-top: 20px;
+  h2{
     text-align: center;
   }
 }
-
