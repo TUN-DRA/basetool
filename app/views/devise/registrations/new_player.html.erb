@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 <div class="new_player">
-<h2>選手情報登録</h2>
+<h2 class="page-heading">選手情報登録</h2>
 <p>※登録は任意です</p>
 
 <%= form_for @player do |f| %>
@@ -18,12 +18,12 @@
 
   <p class="field">
     <label class="form-text">身長</label><br>
-    <%= f.text_field :height %>
+    <%= f.text_field :height %>cm
   </p>
 
   <p class="field">
     <label class="form-text">体重</label><br>
-    <%= f.text_field :weight %>
+    <%= f.text_field :weight %>kg
   </p>
 
   <p class="field">

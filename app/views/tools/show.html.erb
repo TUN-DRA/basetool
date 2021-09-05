@@ -40,8 +40,8 @@
             <td class="table__col2"><%= @tool.detail %></td>
           </tr>
           <tr>
-            <th class="table__col1">税込価格（円）</th>
-            <td class="table__col2"><%= @tool.price %></td>
+            <th class="table__col1">税込価格</th>
+            <td class="table__col2"><%= @tool.price %>円</td>
           </tr>
           <tr>
             <th class="table__col1">購入年月</th>
@@ -52,8 +52,8 @@
             <td class="table__col2"><%= @tool.size %></td>
           </tr>
           <tr>
-            <th class="table__col1">重さ(g)</th>
-            <td class="table__col2"><%= @tool.weight %></td>
+            <th class="table__col1">重さ</th>
+            <td class="table__col2"><%= @tool.weight %>g</td>
           </tr>
           <tr>
             <th class="table__col1">品番</th>
@@ -67,8 +67,9 @@
       </table>
 
     <span class="name">
-      <a href="/users/<%= @tool.user.id %>">
-      <div class="userpage">
+    <div class="userpage">
+      <a href="/users/<%= @tool.user.id %>"class="btn">
+      
         <%= @tool.user.nickname %><span>さんについて知る</span>
       </a>
     </span>
@@ -83,7 +84,7 @@
       <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
     <% end %>
     <div class="comments">
-      <h4>＜コメント一覧＞</h4>
+      <h4 class="comments_index">コメント一覧</h4>
       <% @comments.each do |comment| %>
         <p>
           <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
