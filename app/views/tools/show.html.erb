@@ -1,7 +1,8 @@
 <%= render "shared/header" %>
 <div class="">
   <div class="tool_img">
-  <p class="caption"><%= image_tag @tool.image.variant(resize: '400x400') %>
+  <%= image_tag @tool.image.variant(resize: '400x400') %>
+  <div class="favorite">
     <% if @tool.favorited_by?(current_user) %>
     <%= link_to tool_favorites_path(@tool), method: :delete, class: "favorite_btn" do %>
      ♥<%= @tool.favorites.count %> いいね
@@ -11,11 +12,10 @@
       ♡<%= @tool.favorites.count %> いいね
      <% end %>
     <% end %>
-   </p>
+    </div>
   </div>
     <% if user_signed_in? && current_user.id == @tool.user_id %>
       <div class="more">
-        <span><%#= image_tag 'arrow_top.png' %></span>
         <ul class="more_list">
           <li>
             <%= link_to '編集', edit_tool_path(@tool.id), method: :get %>

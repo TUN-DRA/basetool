@@ -289,6 +289,7 @@ a:focus{
 
 .more_list{
   display: flex;
+  background-color: yellowgreen;
   .btn {
     margin-right: 20px;
     border-radius: 5px;
@@ -307,4 +308,12 @@ a:focus{
 
 .comments_list{
   margin-top: -30px;
+}
+
+.favorite_btn{
+  font-size: 25px;
+}
+
+.favorite{
+  margin: 30px 0 -10px 0;
 }
