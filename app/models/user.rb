@@ -7,4 +7,9 @@ class User < ApplicationRecord
   has_one :player
   has_many :tools
   has_many :comments
+  has_many :favorites, dependent: :destroy
+
+  def already_favorited?(tool)
+    self.favorites.exists?(tool_id: tool.id)
+  end
 end

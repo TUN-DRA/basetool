@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   resources :tools do
     get 'search'
     resources :comments, only: :create
+    resource :favorites, only: [:create, :destroy]
   end
 
-  resources :users, only: :show
+  resources :users, only: :show 
 
 end
