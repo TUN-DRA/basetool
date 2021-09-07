@@ -10,5 +10,4 @@ class Evaluation < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :tools
-
 end

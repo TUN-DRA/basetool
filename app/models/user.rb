@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   def already_favorited?(tool)
-    self.favorites.exists?(tool_id: tool.id)
+    favorites.exists?(tool_id: tool.id)
   end
 end

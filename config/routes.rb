@@ -6,15 +6,14 @@ Rails.application.routes.draw do
     get 'players', to: 'users/registrations#new_player'
     post 'players', to: 'users/registrations#create_player'
   end
-  root to: "tools#index"
+  root to: 'tools#index'
 
-  get '/tools/searchtool',  to: 'tools#search_tool'
+  get '/tools/searchtool', to: 'tools#search_tool'
   resources :tools do
     get 'search'
     resources :comments, only: :create
-    resource :favorites, only: [:create, :destroy]
+    resource :favorites, only: %i[create destroy]
   end
 
-  resources :users, only: :show 
-
+  resources :users, only: :show
 end

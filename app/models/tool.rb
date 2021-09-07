@@ -23,7 +23,7 @@ class Tool < ApplicationRecord
   end
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Tool.where('text LIKE(?)', "%#{search}%")
     else
       Tool.all

@@ -8,37 +8,34 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.new(sign_up_params)
-     unless @user.valid?
-       render :new and return
-     end
-    session["devise.regist_data"] = {user: @user.attributes}
-    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    render :new and return unless @user.valid?
+
+    session['devise.regist_data'] = { user: @user.attributes }
+    session['devise.regist_data'][:user]['password'] = params[:user][:password]
     @player = @user.build_player
     render :new_player
   end
 
   def create_player
-    @user = User.new(session["devise.regist_data"]["user"])
+    @user = User.new(session['devise.regist_data']['user'])
     @player = Player.new(player_params)
-     unless @player.valid?
-       render :new_player and return
-     end
+    render :new_player and return unless @player.valid?
+
     @user.build_player(@player.attributes)
     @user.save
-    session["devise.regist_data"]["user"].clear
+    session['devise.regist_data']['user'].clear
     sign_in(:user, @user)
   end
 
   def edit_player
     @player = Player.find(params[:id])
   end
- 
+
   private
- 
+
   def player_params
     params.require(:player).permit(:age, :affiliation, :height, :weight, :pitching_id, :batting_id, :prefecture_id)
   end
- 
 
   # GET /resource/sign_up
   # def new

@@ -1,14 +1,14 @@
 class ToolsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit]
+  before_action :authenticate_user!, only: %i[new create destroy edit]
 
-  #before_action :set_item, only: [:show, :edit, :update, :destroy]
+  # before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  before_action :move_to_index, only: [:edit, :update, :destroy], except: :search
+  before_action :move_to_index, only: %i[edit update destroy], except: :search
 
-  #before_action :search_tool, only: [:index, :search]
+  # before_action :search_tool, only: [:index, :search]
 
   def index
-    #@tools = Tool.includes(:user).order('created_at DESC')
+    # @tools = Tool.includes(:user).order('created_at DESC')
     @q = Tool.ransack(params[:q])
     @tools = @q.result(distinct: true).order('created_at DESC')
   end
@@ -48,37 +48,37 @@ class ToolsController < ApplicationController
   end
 
   def search
-    #@tools = Tool.search(params[:keyword]).order('created_at DESC')
+    # @tools = Tool.search(params[:keyword]).order('created_at DESC')
   end
 
-
   def search_tool
-    #@q = Tool.search(params[:q])
+    # @q = Tool.search(params[:q])
     @q = Tool.ransack(params[:q])
     @tools = @q.result(distinct: true).order('created_at DESC')
-    #@results = Tool.search(search_params)
-    #@results = @q.result(distinct: true)  # 検索条件にマッチした商品の情報を取得
+    # @results = Tool.search(search_params)
+    # @results = @q.result(distinct: true)  # 検索条件にマッチした商品の情報を取得
   end
 
   private
 
   def tool_params
-    params.require(:tool).permit(:tool_name, :maker_id, :price, :purchase_date, :category_id, :detail, :size, :weight, :part_number, :purchase_store, :evaluation_id, :image).merge(user_id: current_user.id)
+    params.require(:tool).permit(:tool_name, :maker_id, :price, :purchase_date, :category_id, :detail, :size, :weight,
+                                 :part_number, :purchase_store, :evaluation_id, :image).merge(user_id: current_user.id)
   end
 
   def set_tool
-    #@tool = Tool.find(params[:id])
+    # @tool = Tool.find(params[:id])
   end
 
   def move_to_index
-    #redirect_to root_path unless current_user == @tool.user
+    # redirect_to root_path unless current_user == @tool.user
   end
 
   def create_searching_object
-    @q = Tool.ransack(params[:q])  # 検索オブジェクトを生成
+    @q = Tool.ransack(params[:q]) # 検索オブジェクトを生成
   end
 
   def search_params
-    #params.require(:q).permit!
+    # params.require(:q).permit!
   end
 end

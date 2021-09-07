@@ -7,5 +7,4 @@ class Pitching < ActiveHash::Base
 
   include ActiveHash::Associations
   has_many :players
-
 end
