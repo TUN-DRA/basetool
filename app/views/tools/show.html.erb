@@ -15,19 +15,19 @@
     </div>
   </div>
     <% if user_signed_in? && current_user.id == @tool.user_id %>
-      <div class="more">
+      <div class="content_post">
         <ul class="more_list">
           <li>
-            <%= link_to '編集', edit_tool_path(@tool.id), method: :get %>
+            <%= link_to '編集', edit_tool_path(@tool.id), method: :get, class: "btn" %>
           </li>
           <li>
-            <%= link_to '削除', tool_path(@tool.id), method: :delete %>
+            <%= link_to '削除', tool_path(@tool.id), method: :delete, class: "btn" %>
           </li>
         </ul>
       </div>
     <% end %>
 
-      <table class="table">
+      <table class="show_table">
         <tbody>
           <tr>
             <th class="table__col1">カテゴリー</th>
