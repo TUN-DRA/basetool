@@ -65,3 +65,15 @@
 
 - belongs_to :user
 - belongs_to :tool
+
+## favorites テーブル
+
+| Column    | Type       | Options     |
+| --------- | ---------- | ----------- |
+| user      | references |             |
+| tool      | references |             |
+
+### Association
+
+- belongs_to :user
+- belongs_to :tool
