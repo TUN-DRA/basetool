@@ -6,6 +6,7 @@
   </div>
   <div class="tool_img">
     <%= image_tag tool.image.variant(resize: '400x400') %>
+    <% if user_signed_in? %>
     <div class="favorite">
     <% if tool.favorited_by?(current_user) %>
     <%= link_to tool_favorites_path(tool), method: :delete, class: "favorite_btn" do %>
@@ -17,6 +18,7 @@
      <% end %>
     <% end %>
     </div>
+    <% end %>
   </div>
   </div>
       <div class="more">
